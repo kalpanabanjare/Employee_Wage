@@ -8,14 +8,18 @@ namespace Employee_Wage
         public const int is_full_time = 2;
         public const int Emp_per_rate = 20;
         public const int num_of_working_days = 20;
+        public const int max_hr_month = 100;
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee Wage Computation Program.");
             int EmpHr = 0;
             int Emp_wage = 0;
             int totalEmpwage = 0;
-            for (int day = 0; day < num_of_working_days; day++)
+            int totalEmpHr = 0;
+            int totalworkingDays = 0;
+            while (totalEmpHr <= max_hr_month && totalworkingDays < num_of_working_days)
             {
+                totalworkingDays++;                
                 Random random_check = new Random();
                 int empCheck = random_check.Next(0, 3);
                 switch (empCheck)
@@ -35,6 +39,8 @@ namespace Employee_Wage
                         Console.WriteLine("Employee is Absent");
                         break;
                 }
+                totalEmpHr += EmpHr;
+                Console.WriteLine("Days = " + totalworkingDays + " EmpHRS " + EmpHr);
                 Emp_wage = (Emp_per_rate * EmpHr);
                 totalEmpwage += Emp_wage;
                 Console.WriteLine("Daily emp wage: " + Emp_wage);
