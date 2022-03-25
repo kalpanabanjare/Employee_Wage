@@ -1,31 +1,39 @@
-﻿Console.WriteLine("Welcome to Employee Wage Computation Program.");
-//UC3
-int Present = 1; //Constant
-int Fulltime = 1;
-int Emp_per_rate = 20;
-int EmpHr = 0;
-int Emp_wage = 0;
-Random random_attendance = new Random(); //Computation
-int EmpStatus = random_attendance.Next(0, 2);
-Random random_Time = new Random(); // creating second object
-int Emp_Time = random_Time.Next(0, 2);
-if (EmpStatus == Present)
+﻿using System;
+
+namespace Employee_Wage
 {
-    if (Emp_Time == Fulltime)
+    class Program
     {
-        Console.WriteLine("Employee is Present");
-        EmpHr = 8;
-    }
-    else
-    {
-        Console.WriteLine("Employee is Present");
-        EmpHr = 4;
+        public const int is_part_time = 1;
+        public const int is_full_time = 2;
+        public const int Emp_per_rate = 20;
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Welcome to Employee Wage Computation Program.");
+            int EmpHr = 0;
+            int Emp_wage = 0;
+            Random random_check = new Random();
+            int empCheck = random_check.Next(0, 3);
+            switch (empCheck)
+            {
+                case is_part_time:
+                    EmpHr = 4;
+                    Console.WriteLine("Employee is Present");
+                    Console.WriteLine("Employee is Part time");
+                    break;
+                case is_full_time:
+                    EmpHr = 8;
+                    Console.WriteLine("Employee is Present");
+                    Console.WriteLine("Employee is Full time");
+                    break;
+                default:
+                    EmpHr = 0;
+                    Console.WriteLine("Employee is Absent");
+                    break;
+            }
+            Emp_wage = (Emp_per_rate * EmpHr);
+            Console.WriteLine("Daily emp wage: " + Emp_wage);
+        }
     }
 }
-else
-{
-    Console.WriteLine("Employee is Absent");
-    EmpHr = 0;
-}
-Emp_wage = (Emp_per_rate * EmpHr);
-Console.WriteLine("Daily wage " + Emp_wage);
