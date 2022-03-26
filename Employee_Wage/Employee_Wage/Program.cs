@@ -79,6 +79,7 @@ namespace Employee_Wage
             }
             Console.WriteLine("\nTotal work days :" + (DayNumber) + "\nTotal work hours : " + TotalWorkingHrs + "\nTotal employee wage : " + TotalWage);
             Console.WriteLine("\nTotal working hours: " + TotalWorkingHrs + "\nTotal working Days: " + WorkingDay + "\nTotal Wage: " + TotalWage);
+            Console.WriteLine("Emp Total Wage of " + CompanyName + " is: " + TotalWage + " Rs");
         }
         static void Main(string[] args)
         {
